@@ -11,8 +11,8 @@
     <url>http://maven.apache.org</url>
 
     <modules>
-        <module>FrontEnd</module>
-        <module>BackEnd</module>
+        <module>frontend</module>
+        <module>backend</module>
     </modules>
 
     <properties>
