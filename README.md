@@ -28,3 +28,5 @@ https://www.jetbrains.com/student/
 
 Ссылка на скачивание
 https://tomcat.apache.org/download-90.cgi
+6 MySQL
+https://dev.mysql.com/downloads/windows/ 
