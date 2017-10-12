@@ -23,9 +23,7 @@
  */
 package com.netcracker.etalon.controllers;
 
-import com.fasterxml.jackson.core.type.WritableTypeId;
 import com.netcracker.etalon.beans.UserViewModel;
-import org.apache.commons.logging.impl.NoOpLog;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,8 +48,7 @@ public class TestController {
 
     @RequestMapping(value = "/users-view", method = RequestMethod.GET)
     public ModelAndView getUsersAsModelWithView() {
-        NoOpLog noOpLog = new NoOpLog();
-        WritableTypeId writableTypeId = new WritableTypeId();
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");
         modelAndView.addObject("users", getStubUsers());
