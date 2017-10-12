@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: anpi0316
@@ -10,6 +11,8 @@
 <head>
     <title>Login page</title>
 </head>
+<script src="resources/js/libs/jquery-3.2.1.min.js"></script>
+<script src="resources/js/custom/loadSimpleData.js"></script>
 <body>
 <jsp:include page="/jsp/blocks/header.jsp"/>
 
@@ -45,6 +48,23 @@
         </div>
         <div class="col">  </div>
     </div>
+    <br>
+    <div>
+        <h3>Printing data using model and view</h3>
+        <div class="jsDataUsingModelAndView">
+            <c:if test="${not empty users}">
+                <c:forEach items="${users}" var="users">
+                    ${users.id} | ${users.name} <br>
+                </c:forEach>
+            </c:if>
+        </div>
+    </div>
+    <div>
+        <h3>Printing data using js & ajax</h3>
+        <div class="jsDataUsingAjax">
+        </div>
+    </div>
+
 </div>
 </body>
 </html>
