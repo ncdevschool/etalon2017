@@ -12,6 +12,6 @@
     <title></title>
 </head>
 <body>
-<jsp:forward page="jsp/login.jsp"/>
+<c:redirect url = "/users-view"/>
 </body>
 </html>

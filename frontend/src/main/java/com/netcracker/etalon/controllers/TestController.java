@@ -23,9 +23,15 @@
  */
 package com.netcracker.etalon.controllers;
 
+import com.netcracker.etalon.beans.UserViewModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author anpi0316
@@ -39,6 +45,35 @@ public class TestController {
     public String goToLoginPage() {
         return "login";
     }
+
+    @RequestMapping(value = "/users-view", method = RequestMethod.GET)
+    public ModelAndView getUsersAsModelWithView() {
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
+        modelAndView.addObject("users", getStubUsers());
+        return modelAndView;
+    }
+    @RequestMapping(value = "/usersAsJson", method = RequestMethod.GET)
+    @ResponseBody
+    public List<UserViewModel> getUsersAsJson() {
+        return getStubUsers();
+    }
+
+    private List<UserViewModel> getStubUsers() {
+        List<UserViewModel> userViewModels = new ArrayList<>();
+        UserViewModel userViewModelIvan  = new UserViewModel();
+        userViewModelIvan.setId("113");
+        userViewModelIvan.setName("Ivan");
+        UserViewModel userViewModelLeopold = new UserViewModel();
+        userViewModelLeopold.setId("114");
+        userViewModelLeopold.setName("Leopold");
+        userViewModels.add(userViewModelIvan);
+        userViewModels.add(userViewModelLeopold);
+        return userViewModels;
+    }
+
+
 }
 /*
  WITHOUT LIMITING THE FOREGOING, COPYING, REPRODUCTION, REDISTRIBUTION,
