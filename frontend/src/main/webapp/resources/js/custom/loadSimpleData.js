@@ -10,7 +10,7 @@ $(document).ready(function () {
     var usersContainer = $(ELEMENTS.CONTAINER_DATA_USING_AJAX);
 
     $.ajax({
-        url: 'usersAsJson',
+        url: 'students',
         type: 'GET',
         dataType: 'json',
         contentType: "application/json",
@@ -24,9 +24,9 @@ $(document).ready(function () {
         }
     });
 
-    function printUsers(users) {
-        users.some(function (user) {
-            usersContainer.append('<span>' + user.id + ' | ' + user.name + '</span>')
+    function printUsers(students) {
+        students.some(function (student) {
+            usersContainer.append('<span>' + student.studentId +  ' | ' + student.username + ' | ' + student.email +'</span><br>')
         });
     }
 

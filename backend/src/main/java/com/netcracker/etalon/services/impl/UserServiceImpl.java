@@ -44,9 +44,20 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    private static final String USER_ROLE_STUDENT = "student"; //todo create enum with roles
+
     @Override
     public List<UserEntity> findUserByUserName(String name) {
         return  userRepository.findByUsername(name);
+    }
+
+    @Override
+    public void createUsers(List<UserEntity> userEntity) {
+        userRepository.save(userEntity);
+    }
+
+    public List<UserEntity> findAllStudents() {
+        return userRepository.findByRole(USER_ROLE_STUDENT);
     }
 }
 /*

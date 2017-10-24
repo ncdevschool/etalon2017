@@ -25,64 +25,37 @@ package com.netcracker.etalon.beans;
 
 /**
  * @author anpi0316
- *         Date: 24.10.2017
- *         Time: 20:59
+ *         Date: 11.10.2017
+ *         Time: 15:18
  */
-public class UserViewModel {
+public class StudentViewModel extends UserViewModel {
 
-    private String userId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String username;
-    private String password;
+    private String studentId;
+    private String group;
+    private SpecialityViewModel speciality;
 
-    public String getUserId() {
-        return userId;
+    public String getGroup() {
+        return group;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setGroup(String group) {
+        this.group = group;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public SpecialityViewModel getSpeciality() {
+        return speciality;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setSpeciality(SpecialityViewModel speciality) {
+        this.speciality = speciality;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 }
 /*

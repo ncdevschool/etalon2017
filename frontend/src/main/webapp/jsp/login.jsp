@@ -52,9 +52,9 @@
     <div>
         <h3>Printing data using model and view</h3>
         <div class="jsDataUsingModelAndView">
-            <c:if test="${not empty users}">
-                <c:forEach items="${users}" var="users">
-                    ${users.id} | ${users.name} <br>
+            <c:if test="${not empty students}">
+                <c:forEach items="${students}" var="student">
+                    ${student.studentId} | ${student.username} | ${student.email}  <br>
                 </c:forEach>
             </c:if>
         </div>

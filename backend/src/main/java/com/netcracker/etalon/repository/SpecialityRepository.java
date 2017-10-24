@@ -21,69 +21,20 @@
  * United States of America
  * All rights reserved.
  */
-package com.netcracker.etalon.beans;
+package com.netcracker.etalon.repository;
+
+import com.netcracker.etalon.entities.SpecialityEntity;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
 
 /**
  * @author anpi0316
  *         Date: 24.10.2017
- *         Time: 20:59
+ *         Time: 19:59
  */
-public class UserViewModel {
-
-    private String userId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String username;
-    private String password;
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+public interface SpecialityRepository extends CrudRepository<SpecialityEntity, Integer> {
+    List<SpecialityEntity> findSpecialitiesByFaculty_Id(int facultyId);
 }
 /*
  WITHOUT LIMITING THE FOREGOING, COPYING, REPRODUCTION, REDISTRIBUTION,

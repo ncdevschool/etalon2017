@@ -33,7 +33,12 @@ import java.util.List;
  *         Time: 18:26
  */
 public interface UserService {
+
     List<UserEntity> findUserByUserName(String name);
+
+    void createUsers(List<UserEntity> userEntity);
+
+    List<UserEntity> findAllStudents();
 }
 /*
  WITHOUT LIMITING THE FOREGOING, COPYING, REPRODUCTION, REDISTRIBUTION,
