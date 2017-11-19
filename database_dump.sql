@@ -79,8 +79,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Дамп данных таблицы test_base.users: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `role`, `firstname`, `lastname`, `email`, `username`, `password`, `student_id`) VALUES
-	(5, 'admin', NULL, NULL, NULL, 'admin', 'admin', NULL),
-	(6, 'student', 'Divanov', 'Aleksey', 'test@mail.ru', 'dvna', 'test', 1),
+	(5, 'admin', NULL, NULL, NULL, 'admin', '21232f297a57a5a743894a0e4a801fc3', NULL),
+	(6, 'student', 'Divanov', 'Aleksey', 'test@mail.ru', 'student', 'cd73502828457d15655bbd7a63fb0bc8', 1),
 	(11, 'student', NULL, NULL, 'test@mail.ru', 'hello', 'ddd', 1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
