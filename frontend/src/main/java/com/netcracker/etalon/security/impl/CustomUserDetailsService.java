@@ -21,51 +21,57 @@
  * United States of America
  * All rights reserved.
  */
-package com.netcracker.etalon.converters;
+package com.netcracker.etalon.security.impl;
 
-import com.netcracker.etalon.beans.SpecialityViewModel;
-import com.netcracker.etalon.beans.StudentViewModel;
 import com.netcracker.etalon.beans.UserViewModel;
-import com.netcracker.etalon.entities.StudentEntity;
 import com.netcracker.etalon.entities.UserEntity;
+import com.netcracker.etalon.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.ConversionService;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author anpi0316
- *         Date: 24.10.2017
- *         Time: 21:02
+ *         Date: 11.11.2017
+ *         Time: 11:11
  */
-public class UserEntityToStudentViewModelConverter implements Converter<UserEntity, UserViewModel> {
+public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private ConversionService conversionService;
+    private UserService userService;
 
-    @Override
-    public UserViewModel convert(UserEntity userEntity) {
+    public UserDetails loadUserByUsername(final String username)
+            throws UsernameNotFoundException {
+
+        List<UserEntity> userEntities = userService.findUserByUserName(username);
+
+        if (userEntities.size() != 1) {
+            throw new UsernameNotFoundException("Username not found");
+        }
+        UserEntity userEntity = userEntities.get(0);
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(userEntity.getRole()));
-        StudentViewModel userViewModel = new StudentViewModel(userEntity.getUsername(), userEntity.getPassword(), authorities);
+        return buildUserForAuthentication(userEntity, authorities);
 
-        userViewModel.setUserId(String.valueOf(userEntity.getId()));
-        userViewModel.setEmail(userEntity.getEmail());
+    }
+
+    private CustomUser buildUserForAuthentication(UserEntity userEntity, List<GrantedAuthority> authorities) {
+        UserViewModel userViewModel = new UserViewModel(userEntity.getUsername(), userEntity.getPassword(), authorities);
         userViewModel.setFirstName(userEntity.getFirstname());
         userViewModel.setLastName(userEntity.getLastname());
-
-        StudentEntity student = userEntity.getStudent();
-        if (student != null) {
-            userViewModel.setGroup(student.getGroup());
-            userViewModel.setStudentId(String.valueOf(student.getId()));
-            userViewModel.setSpeciality(conversionService.convert(student.getSpeciality(), SpecialityViewModel.class));
-        }
+        userViewModel.setUserId(String.valueOf(userEntity.getId()));
+        userViewModel.setEmail(userEntity.getEmail());
         return userViewModel;
     }
+
+
 }
 /*
  WITHOUT LIMITING THE FOREGOING, COPYING, REPRODUCTION, REDISTRIBUTION,

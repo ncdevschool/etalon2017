@@ -23,6 +23,10 @@
  */
 package com.netcracker.etalon.beans;
 
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
+
 /**
  * @author anpi0316
  *         Date: 11.10.2017
@@ -33,6 +37,10 @@ public class StudentViewModel extends UserViewModel {
     private String studentId;
     private String group;
     private SpecialityViewModel speciality;
+
+    public StudentViewModel(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, authorities);
+    }
 
     public String getGroup() {
         return group;

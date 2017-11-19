@@ -9,6 +9,7 @@
 
 <script src="resources/js/libs/bootstrap.min.js"></script>
 <script src="resources/js/libs/popper.min.js"></script>
+<script src="resources/js/custom/validation.js"></script>
 <link href="resources/css/libs/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="resources/css/general.css" rel="stylesheet" type="text/css" media="all"/>
 <body>

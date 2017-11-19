@@ -12,6 +12,7 @@
             <bean class="com.netcracker.etalon.converters.FacultyEntityToFacultyViewModelConverter"/>
             <bean class="com.netcracker.etalon.converters.SpecialityEntityToSpecialityViewModelConverter"/>
             <bean class="com.netcracker.etalon.converters.UserEntityToStudentViewModelConverter"/>
+            <bean class="com.netcracker.etalon.converters.FacultyViewModelToFacultyEntityConverter"/>
          </set>
 
       </property>

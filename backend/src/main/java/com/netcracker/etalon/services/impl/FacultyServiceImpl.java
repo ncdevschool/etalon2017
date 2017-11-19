@@ -48,6 +48,11 @@ public class FacultyServiceImpl implements FacultyService {
     public List<FacultyEntity> getAllFaculties() {
         return (List<FacultyEntity>) facultyRepository.findAll();
     }
+
+    public void addFaculty(List<FacultyEntity> facultyEntities) {
+        facultyRepository.save(facultyEntities);
+    }
+
 }
 /*
  WITHOUT LIMITING THE FOREGOING, COPYING, REPRODUCTION, REDISTRIBUTION,

@@ -23,19 +23,31 @@
  */
 package com.netcracker.etalon.beans;
 
+import com.netcracker.etalon.security.impl.CustomUser;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
+
 /**
  * @author anpi0316
  *         Date: 24.10.2017
  *         Time: 20:59
  */
-public class UserViewModel {
+public class UserViewModel extends CustomUser  {
 
     private String userId;
     private String firstName;
     private String lastName;
     private String email;
-    private String username;
-    private String password;
+
+    public UserViewModel() {
+
+    }
+
+
+    public UserViewModel(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, authorities);
+    }
 
     public String getUserId() {
         return userId;
@@ -69,21 +81,6 @@ public class UserViewModel {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
 /*
  WITHOUT LIMITING THE FOREGOING, COPYING, REPRODUCTION, REDISTRIBUTION,

@@ -36,6 +36,7 @@ public interface FacultyService {
 
     List<FacultyEntity> getAllFaculties();
 
+    void addFaculty(List<FacultyEntity> facultyEntities);
 }
 /*
  WITHOUT LIMITING THE FOREGOING, COPYING, REPRODUCTION, REDISTRIBUTION,
